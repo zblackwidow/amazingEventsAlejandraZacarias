@@ -51,12 +51,7 @@
 .contenedor2 {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  height: 10vh;
-}
-
-form {
-  width: 20vw;
+  flex-direction: column;
 }
 
 /* style checkbox */
@@ -77,13 +72,11 @@ form {
 /* contenedor 3  */
 .contenedor3 {
   display: flex;
-  justify-content: space-evenly;
-  height: 50vh;
+  flex-direction: column;
   padding-bottom: 40px;
 }
 
 .card {
-  width: 17vw;
   height: auto;
 }
 
@@ -114,13 +107,38 @@ footer {
   display: flex;
   justify-content: space-between;
   color: white;
-  font-size: 20px;
   align-items: center;
   padding: 0 20px;
 }
-
 .social img {
-  width: 2vw;
+  width: 15%;
   border-radius: 10px;
   margin-right: 20px;
+}
+/* Query PC */
+@media only screen and (min-width: 1025px){
+  .card{
+    width: 17vw;
+  }
+  .contenedor3{
+    flex-direction: row;
+    height: 50vh;
+    justify-content: space-evenly;
+  }
+  .contenedor2{
+    flex-direction: row;
+      justify-content: space-around;
+     height: 10vh;
+  }
+  form {
+    width: 20vw;
+  }
+  .social img {
+    width: 2vw;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  footer{
+    font-size: 20px;
+  }
 }
