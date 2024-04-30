@@ -91,14 +91,10 @@ console.log(seArrecho)
 
 alert("arrecha la muchacha")
 
-
-
-let juan = {
+let carlos = {
     color: "blanquito",
-    edad: 17,
-    nacionalidad: "Argentina",
-    sexo: "Masculino",
-    gustos: "Panaderia",
+    edad: 18,
+    nacionalidad:"Argentino",
+    gustos: "nenas",
+    ejercicio: false,
 }
-
-console.log(juan)

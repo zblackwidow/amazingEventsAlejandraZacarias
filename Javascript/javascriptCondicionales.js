@@ -4,12 +4,15 @@
 let menor = 24
 let mayor = 29
 
-function mayores (menor,mayor){
-    if (mayor>menor){
-    console.log("Si soy mayor")}
-    else(mayor<menor){
-    console.log("Soy Menor el ganador")}
-}
+
+    function mayores(menor, mayor) {
+        if (mayor > menor) {
+            console.log("Si soy mayor");
+        } else {
+            console.log("Soy Menor el ganador");
+        }
+    }
+    
 // 2. Realizar un programa que dado 2 números imprima por consola si los numeros son
 //  iguales o si son diferentes. 
 
