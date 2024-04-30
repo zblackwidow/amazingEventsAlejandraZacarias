@@ -90,3 +90,15 @@ let seArrecho = prompt("mi novia se arrecho usted sabe xq?")
 console.log(seArrecho)
 
 alert("arrecha la muchacha")
+
+
+
+let juan = {
+    color: "blanquito",
+    edad: 17,
+    nacionalidad: "Argentina",
+    sexo: "Masculino",
+    gustos: "Panaderia",
+}
+
+console.log(juan)
