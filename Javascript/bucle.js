@@ -223,6 +223,41 @@ console.log("el mas chico es", masChico);
 // manos de cada jugador, y en cada turno se debera seguir jugando solo si se produjo
 // un empate. Caso contrario mostrar un mensaje con el nombre de la persona
 // ganadora.
+console.log("Ejercicio 13");
+let jugador1 = prompt("Ingrese el nombre del jugador 1");
+let jugador2 = prompt("Ingrese el nombre del jugador 2");
+let mano1;
+let mano2;
+let gana1 = false;
+let gana2 = false;
+
+while (!gana1 && !gana2) {
+  mano1 = prompt(jugador1 + " elija piedra, papel o tijera");
+  mano2 = prompt(jugador2 + " elija piedra, papel o tijera");
+  if (mano1 == mano2) {
+    alert("Empate");
+  } else if (
+    (mano1 == "piedra" && mano2 == "tijera") ||
+    (mano1 == "tijera" && mano2 == "papel") ||
+    (mano1 == "papel" && mano2 == "piedra")
+  ) {
+    gana1 = true;
+  }
+  if (
+    (mano2 == "piedra" && mano1 == "tijera") ||
+    (mano2 == "tijera" && mano1 == "papel") ||
+    (mano2 == "papel" && mano1 == "piedra")
+  ) {
+    gana2 = true;
+  }
+}
+
+if (gana1) {
+  alert("Gana " + jugador1);
+}
+if (gana2) {
+  alert("Gana " + jugador2);
+}
 
 // 14. Realizar un programa que imprima por consola un triangulo de 5 asteriscos de lado.
 console.log("Ejercicio 14");
