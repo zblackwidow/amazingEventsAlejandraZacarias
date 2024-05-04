@@ -225,9 +225,23 @@ console.log("el mas chico es", masChico);
 // ganadora.
 
 // 14. Realizar un programa que imprima por consola un triangulo de 5 asteriscos de lado.
+console.log("Ejercicio 14");
+let asterisco = "*";
+let triangulo = "";
+for (let i = 0; i < 5; i++) {
+  triangulo = triangulo + asterisco;
+  console.log(triangulo);
+}
 
 // 15. Realizar un programa que imprima por consola un triangulo de 5 asteriscos de lado
 // pero invertido.
+console.log("Ejercicio 15");
+
+let triangulo1 = "******";
+for (let i = 0; i < 5; i++) {
+  triangulo1 = triangulo1.slice(0, -1);
+  console.log(triangulo1);
+}
 
 // 16. Dado un array de 10 numeros desordenados, realizar un programa que imprima por
 // pantalla el array ordenado. (NO USAR SORT, solo ciclos FOR)
