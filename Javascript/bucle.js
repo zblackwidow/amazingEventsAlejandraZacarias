@@ -10,14 +10,16 @@
 // }
 // 1. Realizar un programa que permita el ingreso de un numero y muestre su tabla de
 // multiplicar (Los primeros 10 multiplos).
-let porDiez = prompt("Ingrese un numero:");
-for (let i = 1; i <= 10; i++) {
-    let result = porDiez * i;
-    console.log(result);
-  }
-  
+// console.log("EJERCICIO 1");
+// let porDiez = prompt("Ingrese un número:");
+// for (let i = 1; i <= 10; i++) {
+//     let result = porDiez * i;
+//     console.log(result);
+//   }
+
 // 2. Realizar un programa que permita el ingreso de numeros los cuales se tienen que ir
 // acumulando. El ingreso de datos terminara cuando el usuario ingrese un valor 0.
+// usar un while
 
 // 3. Realizar en juego de adivinar el numero del los ejercicios del tema anterior, en una
 // variable guardar un numero que este en el rango 1 - 100. La persona debera poder
@@ -38,9 +40,19 @@ for (let i = 1; i <= 10; i++) {
 
 // 6. Dado un array de 10 elementos, realizar un programa que recorra ese array y
 // muestre un mensaje por consola con cada uno de los elementos del array.
-
+// console.log("EJERCICIO 6");
+// let array = [2,5,7,9,15,25,30,32,37,40]
+// for (let i = 0; i < array.length; i++){
+//       console.log("Conte "+array[i]+" elefantes");
+// }
 // 7. Dado un array de 10 numeros, realizar un programa que muestre por consola el
 // doble de cada uno de los elementos.
+// console.log("EJERCICIO 7");
+//   for (let i = 0; i < array.length; i++) {
+//     let result = array [i] * 2 
+//     console.log(result);
+//   }
+
 
 // 8. Dado un array con al menos 5 objetos comprendidos por un grupo familiar, cada
 // objeto representa a 1 persona con al menos 4 propiedades, realizar un programa
@@ -56,8 +68,10 @@ for (let i = 1; i <= 10; i++) {
 // 11. Dado un array de 10 numeros, realizar un programa que imprima por pantalla el
 // numero mas grande.
 
+
 // 12. Dado un array de 10 numeros, realizar un programa que imprima por pantalla el
 // numero mas chico.
+
 
 // 13. Realizar un programa que permita jugar a piedra papel o tijeras, se debera poder
 // ingresar los nombres de 2 jugadores. En el bucle del juego se debera pedir 1 a 1 las
@@ -72,3 +86,20 @@ for (let i = 1; i <= 10; i++) {
 
 // 16. Dado un array de 10 numeros desordenados, realizar un programa que imprima por
 // pantalla el array ordenado. (NO USAR SORT, solo ciclos FOR)
+
+let desordenado = [20, 9, 2, 5, 4, 7, 9, 10, 14, 3];
+function ordenarSeleccion(array) {
+  for (let i = 0; i < array.length; i++) {
+    let menor = i;
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] < array[menor]) {
+        menor = j;
+      }
+    }
+    [array[i], array[menor]] = [array[menor], array[i]];
+  }
+  return array;
+}
+
+let ordenado = ordenarSeleccion(desordenado);
+console.log("Array ordenado:", ordenado);

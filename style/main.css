@@ -70,15 +70,8 @@
 }
 
 /* contenedor 3  */
-.contenedor3 {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 40px;
-}
 
-.card {
-  height: auto;
-}
+
 
 .formlario {
   margin: 7vh;
@@ -121,9 +114,8 @@ footer {
     width: 17vw;
   }
   .contenedor3{
-    flex-direction: row;
-    height: 50vh;
-    justify-content: space-evenly;
+    display: flex;
+    
   }
   .contenedor2{
     flex-direction: row;
