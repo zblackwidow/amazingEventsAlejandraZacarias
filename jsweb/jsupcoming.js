@@ -195,13 +195,13 @@ const data = {
   ],
 };
 
-let cardContainer = document.getElementById("card")
 
-card(data.events, cardContainer)
+
+let cardContainer = document.getElementById("card");
 
 function card(allCard, cardContainer) {
   for (let i = 0; i < allCard.length; i++) {
-    createCard(cardContainer, allCard[i])
+    createCard(cardContainer, allCard[i]);
   }
 }
 
@@ -210,7 +210,7 @@ function createCard(cardContainer, card) {
   divCard.classList.add("card", "py-3", "mb-2", "ms-2");
   divCard.style.width = "15rem";
 
-  divCard.innerHTML = `<img src="${card.image}" class="card-img-top rounded-top img-card" alt = "${card.name}" >
+  divCard.innerHTML = `<img src="${card.image}" class="card-img-top rounded-top img-card" alt="${card.name}">
     <div class="card-body h-25">
         <h5 class="card-title">${card.name}</h5>
         <p class="card-text">${card.description}</p>
@@ -218,8 +218,20 @@ function createCard(cardContainer, card) {
     <div class="card-body d-flex justify-content-between align-items-center">
         <h6 class="card-title">Price $ ${card.price}</h6>
         <a href="/details.html?=${card._id}" class="btn btn-outline-danger">Details</a>
-    </div>`
+    </div>`;
 
-  cardContainer.appendChild(divCard)
+  cardContainer.appendChild(divCard);
 }
 
+let filterFutureEvents = (data) => {
+  let currentDate = new Date(data.currentDate);
+  let futureEvents = data.events.filter((event) => {
+    let eventDate = new Date(event.date);
+    return eventDate > currentDate;
+  });
+  return futureEvents;
+};
+
+let futureEvents = filterFutureEvents(data);
+
+card(futureEvents, cardContainer);
