@@ -68,11 +68,6 @@
 .form-check-input[type=checkbox] {
   border-radius: .75em;
 }
-
-/* contenedor 3  */
-
-
-
 .formlario {
   margin: 7vh;
   display: flex;
@@ -110,17 +105,10 @@ footer {
 }
 /* Query PC */
 @media only screen and (min-width: 1025px){
-  .card{
-    width: 17vw;
-  }
-  .contenedor3{
-    display: flex;
-    
-  }
   .contenedor2{
     flex-direction: row;
-      justify-content: space-around;
-     height: 10vh;
+    justify-content: space-around;
+    height: 10vh;
   }
   form {
     width: 20vw;

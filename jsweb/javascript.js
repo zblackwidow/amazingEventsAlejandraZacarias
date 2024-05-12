@@ -194,26 +194,33 @@ const data = {
       },
     ],
   };
-let motherCards = document.querySelector(".card");
 
-function createCards(data) {
-    
-    for (let i = 0; i < data.events.length; i++) {
-        let card = data.events[i]; 
-        let newCard = document.createElement("div"); 
-        newCard.classList.add("card"); 
-        newCard.innerHTML = ` 
-            <img src="${card.image}" class="card-img-top" alt="..." />
-            <div class="card-body">
-                <h5 class="card-title">${card.name}</h5>
-                <p class="card-text">${card.description}</p>
-                <br>
-                <p class="d-flex justify-content-around">Price $${card.price} <a href="/details.html" class="btn btn-primary">Details</a></p>
-            </div>`;
-        
-        motherCards.appendChild(newCard);
+let cardContainer = document.getElementById("card")
+
+card(data.events,cardContainer)
+
+function card(allCard,cardContainer){
+    for (let i = 0; i < allCard.length; i++) {
+        createCard(cardContainer,allCard[i])
     }
 }
 
+function createCard(cardContainer, card) {
+    let divCard = document.createElement("div");
+    divCard.classList.add("card","py-3", "mb-2", "ms-2");
+    divCard.style.width = "15rem";
 
-createCards(data);
+    divCard.innerHTML = `<img src="${card.image}" class="card-img-top rounded-top img-card" alt = "${card.name}" >
+    <div class="card-body h-25">
+        <h5 class="card-title">${card.name}</h5>
+        <p class="card-text">${card.description}</p>
+    </div>
+    <div class="card-body d-flex justify-content-between align-items-center">
+        <h6 class="card-title">Price $ ${card.price}</h6>
+        <a href="/details.html?=${card._id}" class="btn btn-outline-danger">Details</a>
+    </div>`
+
+    cardContainer.appendChild(divCard)
+}
+
+
