@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso</title>
+    <title>Notas</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
     <header>
         <nav>
@@ -14,10 +18,25 @@
             <button><a href="#">Block de notas</a></button>
         </nav>
     </header>
-    <main>
-        
+    <main class="maineada">
+        <div class="container">
+            <h1>Lista de Tareas</h1>
+            <br>
+            <input type="text" id="titulO" placeholder='Ingrese un titulo'>
+            <br>
+            <textarea id="descripcion" cols='30' rows='10' placeholder="Ingrese una descripción"></textarea>
+            <br>
+            <button onclick="addTask()" class="css-button-neumorphic">Agregar</button>
+            <button onclick="limpiarCampos()" class="css-button-neumorphic">Borrar</button>
+        </div>
+        <div class="contenedorTarjeta">
+            <ul id="tarjeta" class="list-group"></ul>
+        </div>
     </main>
-    <footer><p>Created by Alejandra Zacarias</p></footer>
+    <footer>
+        <p>Created by Alejandra Zacarias</p>
+    </footer>
     <script src="jsnote.js"></script>
 </body>
+
 </html>

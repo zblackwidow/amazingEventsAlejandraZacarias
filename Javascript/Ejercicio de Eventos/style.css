@@ -2,14 +2,23 @@
     box-sizing: border-box;
     margin: 0;
 
-    font-family: Google 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
-    background-color: #6E6E6E;
+    background-color: #453c5c;
     height: 7vh;
     display: flex;
     justify-content: space-around;
+
+}
+
+nav button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
 }
 
 a {
@@ -17,7 +26,7 @@ a {
     color: white;
 }
 
-button {
+.calcularMSC {
     background: none;
     border: none;
     padding: 0;
@@ -37,7 +46,7 @@ button {
     justify-content: center;
 }
 
-.base {
+main {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,8 +62,96 @@ form {
 
 }
 
-footer {
-
-    text-align: center;
-    height: 7vh;
+.base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.maineada {
+    display: flex;
+    background-color: #beed8065;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 30vh;
+    padding: 25px;
+}
+/* 
+textarea {
+    height: 200px;
+} */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #51647a;
+    height: 6vh;
+    color: aliceblue;
+}
+.css-button-gradient--1 {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background-size: 120% auto;
+    background-image: linear-gradient(315deg, #4ecdc4 0%, #c797eb 75%);
+  }
+  .css-button-gradient--1:hover {
+    background-position: right center;
+  }
+  .css-button-gradient--1:active {
+    top: 2px;
+  }
+  .css-button-neumorphic {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #efefef;
+    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+    color: #585858;
+  }
+  .css-button-neumorphic:active {
+    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+  }
+  .contenedorTarjeta{
+    width: 90%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+  }
+  .miClase{
+    list-style: none;
+    width: 85vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5%;
+    }   
+  ul{
+    padding: 0;
+  }
