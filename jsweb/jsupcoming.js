@@ -265,3 +265,16 @@ function actualizarDatos(eventos) {
 document.querySelectorAll('input[type=checkbox]').forEach(function (checkbox) {
   checkbox.addEventListener('change', filtrarPorCategoria);
 });
+
+let search = document.getElementById("search")
+
+search.addEventListener('input', function (e) {
+  let searchValue = e.target.value.toLowerCase()
+  let cardContainer = document.getElementById('card')
+  cardContainer.innerHTML = '';
+  data.events.forEach(function (evento) {
+    if (evento.name.toLowerCase().includes(searchValue)) {
+      createCard(cardContainer, evento)
+      }
+      });
+      });
