@@ -222,4 +222,45 @@ function createCard(cardContainer, card) {
 
   cardContainer.appendChild(divCard)
 }
+function filtrarPorCategoria() {
+  let checkboxes = document.querySelectorAll('input[type=checkbox]');
+  let categoriasSeleccionadas = [];
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      categoriasSeleccionadas.push(checkbox.dataset.category);
+    }
+  });
+  if (categoriasSeleccionadas.length === 0) {
+    actualizarDatos(data.events);
+  } else {
+    let eventosFiltrados = data.events.filter(function (evento) {
+      return categoriasSeleccionadas.includes(evento.category);
+    });
+    actualizarDatos(eventosFiltrados);
+  }
+}
 
+function actualizarDatos(eventos) {
+  let cardContainer = document.getElementById('card');
+  cardContainer.innerHTML = '';
+  eventos.forEach(function (evento) {
+    createCard(cardContainer, evento);
+  });
+}
+
+document.querySelectorAll('input[type=checkbox]').forEach(function (checkbox) {
+  checkbox.addEventListener('change', filtrarPorCategoria);
+});
+
+let search = document.getElementById("search")
+
+search.addEventListener('input', function (e) {
+  let searchValue = e.target.value.toLowerCase()
+  let cardContainer = document.getElementById('card')
+  cardContainer.innerHTML = '';
+  data.events.forEach(function (evento) {
+    if (evento.name.toLowerCase().includes(searchValue)) {
+      createCard(cardContainer, evento)
+      }
+      });
+      });

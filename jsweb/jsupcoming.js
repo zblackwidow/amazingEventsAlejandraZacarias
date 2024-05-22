@@ -235,3 +235,33 @@ let filterFutureEvents = (data) => {
 let futureEvents = filterFutureEvents(data);
 
 card(futureEvents, cardContainer);
+
+function filtrarPorCategoria() {
+  let checkboxes = document.querySelectorAll('input[type=checkbox]');
+  let categoriasSeleccionadas = [];
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      categoriasSeleccionadas.push(checkbox.dataset.category);
+    }
+  });
+  if (categoriasSeleccionadas.length === 0) {
+    actualizarDatos(futureEvents);
+  } else {
+    let eventosFiltrados = futureEvents.filter(function (evento) {
+      return categoriasSeleccionadas.includes(evento.category);
+    });
+    actualizarDatos(eventosFiltrados);
+  }
+}
+
+function actualizarDatos(eventos) {
+  let cardContainer = document.getElementById('card');
+  cardContainer.innerHTML = '';
+  eventos.forEach(function (evento) {
+    createCard(cardContainer, evento);
+  });
+}
+
+document.querySelectorAll('input[type=checkbox]').forEach(function (checkbox) {
+  checkbox.addEventListener('change', filtrarPorCategoria);
+});

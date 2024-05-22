@@ -1,7 +1,7 @@
 // array vacio donde almacena las
 let nota = [];
 
-function addTask() {
+function agregarNota() {
     let tituloIngresado = document.getElementById('titulO');
     let descripcionIngresada = document.getElementById('descripcion');
     let tituloDeLaNota = tituloIngresado.value;

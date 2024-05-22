@@ -195,16 +195,12 @@ const data = {
   ],
 };
 
-
-
 let cardContainer = document.getElementById("card");
-
 function card(allCard, cardContainer) {
   for (let i = 0; i < allCard.length; i++) {
     createCard(cardContainer, allCard[i]);
   }
 }
-
 function createCard(cardContainer, card) {
   let divCard = document.createElement("div");
   divCard.classList.add("card", "py-3", "mb-2", "ms-2");
@@ -235,3 +231,33 @@ let filterPastEvents = (data) => {
 let pastEvents = filterPastEvents(data);
 
 card(pastEvents, cardContainer);
+
+function filtrarPorCategoria() {
+  let checkboxes = document.querySelectorAll('input[type=checkbox]');
+  let categoriasSeleccionadas = [];
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      categoriasSeleccionadas.push(checkbox.dataset.category);
+    }
+  });
+  if (categoriasSeleccionadas.length === 0) {
+    actualizarDatos(pastEvents);
+  } else {
+    let eventosFiltrados = pastEvents.filter(function (evento) {
+      return categoriasSeleccionadas.includes(evento.category);
+    });
+    actualizarDatos(eventosFiltrados);
+  }
+}
+
+function actualizarDatos(eventos) {
+  let cardContainer = document.getElementById('card');
+  cardContainer.innerHTML = '';
+  eventos.forEach(function (evento) {
+    createCard(cardContainer, evento);
+  });
+}
+
+document.querySelectorAll('input[type=checkbox]').forEach(function (checkbox) {
+  checkbox.addEventListener('change', filtrarPorCategoria);
+});
