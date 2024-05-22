@@ -261,6 +261,30 @@ search.addEventListener('input', function (e) {
   data.events.forEach(function (evento) {
     if (evento.name.toLowerCase().includes(searchValue)) {
       createCard(cardContainer, evento)
-      }
-      });
-      });
+    }
+  });
+});
+
+function filtrarEventos() {
+  let searchText = document.getElementById('search').value.toLowerCase();
+  let checkboxes = document.querySelectorAll('input[type=checkbox]');
+  let categoriasSeleccionadas = [];
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      categoriasSeleccionadas.push(checkbox.dataset.category);
+    }
+  });
+  let eventosFiltrados = data.events.filter(function (evento) {
+    let coincideConTextoDeBusqueda = evento.name.toLowerCase().includes(searchText) || evento.description.toLowerCase().includes(searchText);
+    let coincideConCategoria = categoriasSeleccionadas.length === 0 || categoriasSeleccionadas.includes(evento.category);
+    return coincideConTextoDeBusqueda && coincideConCategoria;
+  });
+  actualizarDatos(eventosFiltrados);
+}
+
+document.getElementById('search').addEventListener('input', filtrarEventos);
+
+document.querySelectorAll('input[type=checkbox]').forEach(function (checkbox) {
+  checkbox.addEventListener('change', filtrarEventos);
+});
+
