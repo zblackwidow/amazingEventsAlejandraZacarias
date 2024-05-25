@@ -203,10 +203,8 @@ let tarjeta = data.events.find(evento => evento._id === id);
 let cardContainer = document.getElementById('card');
 
 let cardContenedor = `
-        
           <img class="img2" src="${tarjeta.image}">
-       
-        <div class="texto3">
+          <div class="texto3">
           <h3>${tarjeta.name}</h3>
           <p>${tarjeta.date} - ${tarjeta.place}</p>
           <p>${tarjeta.description}</p>

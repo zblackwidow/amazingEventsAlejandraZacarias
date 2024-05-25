@@ -136,13 +136,14 @@ footer {
     justify-content: center;
     height: 87vh;
   }
-  .imgde{
+  .img2{
+    width: 50%;
     margin-right: 5%;
   }
   #card{
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 80%;
     align-items: center;
   }
   .contenedor2 {
