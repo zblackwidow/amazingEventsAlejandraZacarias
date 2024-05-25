@@ -110,7 +110,25 @@ footer {
   border-radius: 10px;
   margin-right: 20px;
 }
-
+.mainmain{
+  display: flex;
+  height: 87vh;
+}
+.texto3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.img2{
+  width: 100vw;
+}
+#card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 /* Query PC */
 @media only screen and (min-width: 1025px) {
   .mainmain{
