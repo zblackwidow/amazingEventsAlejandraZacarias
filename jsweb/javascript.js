@@ -218,9 +218,6 @@ function createCard(cardContainer, card) {
     <div class="card-body d-flex justify-content-between align-items-center">
         <h6 class="card-title">Price $ ${card.price}</h6>
         <a href="/details.html?id=${card._id}" class="btn btn-outline-danger">Details</a>
-
-        
-
     </div>`
 
   cardContainer.appendChild(divCard)
