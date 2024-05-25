@@ -113,6 +113,20 @@ footer {
 
 /* Query PC */
 @media only screen and (min-width: 1025px) {
+  .mainmain{
+    display: flex;
+    justify-content: center;
+    height: 87vh;
+  }
+  .imgde{
+    margin-right: 5%;
+  }
+  #card{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+  }
   .contenedor2 {
     flex-direction: row;
     justify-content: space-around;
