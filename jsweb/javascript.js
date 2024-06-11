@@ -1,3 +1,4 @@
+import * as functionCard from "./modulo.js"
 const data = {
   currentDate: "2023-01-01",
   events: [
@@ -201,27 +202,10 @@ card(data.events, cardContainer)
 
 function card(allCard, cardContainer) {
   for (let i = 0; i < allCard.length; i++) {
-    createCard(cardContainer, allCard[i])
+    functionCard.createCard(cardContainer, allCard[i])
   }
 }
 
-function createCard(cardContainer, card) {
-  let divCard = document.createElement("div");
-  divCard.classList.add("card", "py-3", "mb-2", "ms-2");
-  divCard.style.width = "15rem";
-
-  divCard.innerHTML = `<img src="${card.image}" class="card-img-top rounded-top img-card" alt = "${card.name}" >
-    <div class="card-body h-25">
-        <h5 class="card-title">${card.name}</h5>
-        <p class="card-text">${card.description}</p>
-    </div>
-    <div class="card-body d-flex justify-content-between align-items-center">
-        <h6 class="card-title">Price $ ${card.price}</h6>
-        <a href="/details.html?id=${card._id}" class="btn btn-outline-danger">Details</a>
-    </div>`
-
-  cardContainer.appendChild(divCard)
-}
 function filtrarPorCategoria() {
   let checkboxes = document.querySelectorAll('input[type=checkbox]');
   let categoriasSeleccionadas = [];
@@ -244,7 +228,7 @@ function actualizarDatos(eventos) {
   let cardContainer = document.getElementById('card');
   cardContainer.innerHTML = '';
   eventos.forEach(function (evento) {
-    createCard(cardContainer, evento);
+    functionCard.createCard(cardContainer, evento);
   });
 }
 
@@ -260,7 +244,7 @@ search.addEventListener('input', function (e) {
   cardContainer.innerHTML = '';
   data.events.forEach(function (evento) {
     if (evento.name.toLowerCase().includes(searchValue)) {
-      createCard(cardContainer, evento)
+      functionCard.createCard(cardContainer, evento)
     }
   });
 });
@@ -279,7 +263,13 @@ function filtrarEventos() {
     let coincideConCategoria = categoriasSeleccionadas.length === 0 || categoriasSeleccionadas.includes(evento.category);
     return coincideConTextoDeBusqueda && coincideConCategoria;
   });
-  actualizarDatos(eventosFiltrados);
+
+  if (eventosFiltrados.length === 0) {
+    let cardContainer = document.getElementById('card');
+    cardContainer.innerHTML = `<div class="alert alert-danger" role="alert"> No se encontraron resultados en su busqueda </div>`
+  } else {
+    actualizarDatos(eventosFiltrados);
+  }
 }
 
 document.getElementById('search').addEventListener('input', filtrarEventos);

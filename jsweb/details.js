@@ -209,6 +209,6 @@ let cardContenedor = `
           <p>${tarjeta.date} - ${tarjeta.place}</p>
           <p>${tarjeta.description}</p>
         </div>
-      `;
+      `;    
 
 cardContainer.innerHTML = cardContenedor;
