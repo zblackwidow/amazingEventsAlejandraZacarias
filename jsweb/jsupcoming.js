@@ -1,4 +1,4 @@
-import * as functionCard from "./modulo.js"
+import * as functionCard from "../module/modulo.js"
 const data = {
   currentDate: "2023-01-01",
   events: [
@@ -239,7 +239,7 @@ function actualizarDatos(eventos) {
   let cardContainer = document.getElementById('card');
   cardContainer.innerHTML = '';
   eventos.forEach(function (evento) {
-    createCard(cardContainer, evento);
+    functionCard.createCard(cardContainer, evento);
   });
 }
 
@@ -255,7 +255,7 @@ search.addEventListener('input', function (e) {
   cardContainer.innerHTML = '';
   data.events.forEach(function (evento) {
     if (evento.name.toLowerCase().includes(searchValue)) {
-      createCard(cardContainer, evento)
+      functionCard.createCard(cardContainer, evento)
     }
   });
 });

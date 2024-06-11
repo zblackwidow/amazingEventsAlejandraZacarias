@@ -1,4 +1,4 @@
-import * as functionCard from "./modulo.js"
+import * as functionCard from "../module/modulo.js"
 const data = {
   currentDate: "2023-01-01",
   events: [
@@ -266,7 +266,7 @@ function filtrarEventos() {
 
   if (eventosFiltrados.length === 0) {
     let cardContainer = document.getElementById('card');
-    cardContainer.innerHTML = `<div class="alert alert-danger" role="alert"> No se encontraron resultados en su busqueda </div>`
+    cardContainer.innerHTML = `<div class="alert alert-danger" style="width: 50%" role="alert"> No results were found for your search </div>`
   } else {
     actualizarDatos(eventosFiltrados);
   }
