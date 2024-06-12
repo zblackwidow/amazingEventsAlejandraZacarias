@@ -1,4 +1,4 @@
-import * as functionCard from "../module/modulo"
+import * as functionCard from "../module/modulo.js"
 const data = {
   currentDate: "2023-01-01",
   events: [
