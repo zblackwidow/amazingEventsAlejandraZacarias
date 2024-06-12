@@ -1,9 +1,11 @@
+// las imprime
 export function card(allCard, cardContainer) {
   cardContainer.innerHTML = ""
   for (let i = 0; i < allCard.length; i++) {
     createCard(cardContainer, allCard[i])
   }
 }
+// crea las tarjetas 
 export function createCard(cardContainer,card) {
   let divCard = document.createElement("div");
   divCard.classList.add("card", "py-3", "mb-2", "ms-2");
@@ -22,24 +24,6 @@ export function createCard(cardContainer,card) {
 }
 
 
-// export function filtrarPorCategoria() {
-//   let checkboxes = document.querySelectorAll('input[type=checkbox]');
-//   let categoriasSeleccionadas = [];
-//   checkboxes.forEach(function (checkbox) {
-//     if (checkbox.checked) {
-//       categoriasSeleccionadas.push(checkbox.dataset.category);
-//     }
-//   });
-//   if (categoriasSeleccionadas.length === 0) {
-//     createCard(data.events);
-//   } else {
-//     let eventosFiltrados = data.events.filter(function (evento) {
-//       return categoriasSeleccionadas.includes(evento.category);
-//     });
-//     createCard(eventosFiltrados);
-//   }
-// }
-
 export function filtrarEventos(data) {
   let searchText = document.getElementById('search').value.toLowerCase();
   let checkboxes = document.querySelectorAll('input[type=checkbox]');
@@ -49,17 +33,17 @@ export function filtrarEventos(data) {
       categoriasSeleccionadas.push(checkbox.dataset.category);
     }
   });
-  let eventosFiltrados = dataEvents.filter(function (evento) {
+  let eventosFiltrados = data.filter(function (evento) {
     let coincideConTextoDeBusqueda = evento.name.toLowerCase().includes(searchText) || evento.description.toLowerCase().includes(searchText);
     let coincideConCategoria = categoriasSeleccionadas.length === 0 || categoriasSeleccionadas.includes(evento.category);
     return coincideConTextoDeBusqueda && coincideConCategoria;
   });
 
+  let cardContainer = document.getElementById('card');
+  cardContainer.innerHTML = '';
   if (eventosFiltrados.length === 0) {
-    let cardContainer = document.getElementById('card');
     cardContainer.innerHTML = `<div class="alert alert-danger" style="width: 50%" role="alert"> No results were found for your search </div>`
   } else {
-    createCard(eventosFiltrados);
+    card(eventosFiltrados,cardContainer);
   }
 }
-
