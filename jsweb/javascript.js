@@ -17,7 +17,6 @@ document.querySelectorAll('input[type="checkbox"]').forEach(checkbox =>
   checkbox.addEventListener("change", () => functionCard.filtrarEventos(dataEvents))
 );
 
-
 let search = document.getElementById("search");
 
 search.addEventListener("input", () => functionCard.filtrarEventos(dataEvents));
