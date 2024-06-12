@@ -6,25 +6,20 @@ let futureEvents = [];
 let filterFutureEvents = (data) => {
   let currentDate = data.currentDate;
   let futureEvents = data.events.filter((event) => {
-    let eventDate = event.date;
+  let eventDate = event.date;
     return eventDate > currentDate;
   });
-  console.log(futureEvents); // Imprime los eventos futuros
   return futureEvents;
 };
 let cardContainer = document.getElementById("card");
-console.log(cardContainer);
 
 fetch(urlApi)
   .then(response => response.json())
   .then(data => {
     futureEvents = filterFutureEvents(data);
-    functionCard.card(futureEvents, cardContainer); // Muestra solo los eventos futuros
+    functionCard.card(futureEvents, cardContainer); 
     functionCard.filtrarEventos(futureEvents);
   });
-
-
-
 
 document.querySelectorAll('input[type="checkbox"]').forEach(checkbox =>
   checkbox.addEventListener("change", () => functionCard.filtrarEventos(futureEvents))
