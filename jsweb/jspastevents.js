@@ -1,6 +1,7 @@
 import * as functionCard from "../module/modulo.js";
 
 const urlApi = "https://aulamindhub.github.io/amazing-api/events.json";
+
 let pastEvents = [];
 
 let filterpastEvents = (data) => {
@@ -9,22 +10,19 @@ let filterpastEvents = (data) => {
     let eventDate = event.date;
     return eventDate < currentDate;
   });
-  console.log(pastEvents); // Imprime los eventos futuros
+  console.log(pastEvents);
   return pastEvents;
-};
+}
+
 let cardContainer = document.getElementById("card");
-console.log(cardContainer);
 
 fetch(urlApi)
   .then(response => response.json())
   .then(data => {
     pastEvents = filterpastEvents(data);
-    functionCard.card(pastEvents, cardContainer); // Muestra solo los eventos futuros
+    functionCard.card(pastEvents, cardContainer);
     functionCard.filtrarEventos(pastEvents);
   });
-
-
-
 
 document.querySelectorAll('input[type="checkbox"]').forEach(checkbox =>
   checkbox.addEventListener("change", () => functionCard.filtrarEventos(pastEvents))
