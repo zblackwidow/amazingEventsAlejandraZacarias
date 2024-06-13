@@ -1,4 +1,4 @@
-// Primero, necesitas traer los datos de la API
+
 let datosDeLaApi;
 
 fetch('https://aulamindhub.github.io/amazing-api/events.json')
