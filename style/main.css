@@ -135,11 +135,13 @@ footer {
   align-items: center;
   justify-content: center;
 }
-.alert-danger{
+
+.alert-danger {
   width: 50%;
 }
+
 /* Query PC */
-@media only screen and (max-width: 1024px){
+@media only screen and (max-width: 1024px) {
   #card {
     display: flex;
     flex-direction: column;
@@ -147,6 +149,7 @@ footer {
     justify-content: center;
   }
 }
+
 @media only screen and (min-width: 1025px) {
   .mainmain {
     display: flex;

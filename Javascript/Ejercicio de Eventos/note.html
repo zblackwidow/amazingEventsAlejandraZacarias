@@ -5,38 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
-
 <body>
     <header>
         <nav>
             <button><a href="msc.html">Masa corporal</a></button>
-            <button><a href="conversor.html">Conversor de divisa</a></button>
-            <button><a href="#">Block de notas</a></button>
+            <button><a href="#">Conversor de divisa</a></button>
+            <button><a href="note.html">Block de notas</a></button>
         </nav>
+        <h1>Notas</h1>
     </header>
-    <main class="maineada">
-        <div class="container">
-            <h1>Lista de Tareas</h1>
-            <br>
-            <input type="text" id="titulO" placeholder='Ingrese un titulo'>
-            <br>
-            <textarea id="descripcion" cols='30' rows='10' placeholder="Ingrese una descripción"></textarea>
-            <br>
-            <button onclick="agregarNota()" class="css-button-neumorphic">Agregar</button>
-            <button onclick="limpiarCampos()" class="css-button-neumorphic">Borrar</button>
+    <main>
+        <div class="contenedorDeNotas">
+            <input type="text" id="titulo" placeholder="Título">
+            <textarea id="descripcion" placeholder="Descripción"></textarea>
+            <button onclick="agregarNota()">Guardar Nota</button>
+            <button onclick="limpiarCampos()">Limpiar</button>
         </div>
-        <div class="contenedorTarjeta">
-            <ul id="tarjeta" class="list-group"></ul>
+        <div class="filter-container">
+            <input type="text" id="filterText" placeholder="Buscar por texto" oninput="aplicarFiltros()">
+            <label>
+                <input type="checkbox" id="filterCompleted" onchange="aplicarFiltros()"> Mostrar realizadas
+            </label>
         </div>
+        <div id="tarjeta" class="tarjeta"></div>
     </main>
     <footer>
-        <p>Created by Alejandra Zacarias</p>
+        <p>Creado por Alejandra Zacarías</p>
     </footer>
     <script src="jsnote.js"></script>
 </body>
-
 </html>
