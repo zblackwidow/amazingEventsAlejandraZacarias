@@ -7,27 +7,31 @@
     <title>Conversor de divisa</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
 </head>
 
 <body>
     <header>
         <nav>
             <button><a href="msc.html">Masa corporal</a></button>
-            <button><a href="#">Conversor de divisa</a></button>
+            <button><a href="conversor.html">Conversor de divisa</a></button>
             <button><a href="note.html">Block de notas</a></button>
         </nav>
     </header>
     <main>
         <div class="base">
-            <h1>Conversor de Peso Argentino a Dolar Blue</h1>
-            <label><h3>Pesos Arg</h3>
+            <h1>Conversor de Dólar Blue a Peso Argentino</h1>
+            <label>
+                <h3>Dólares</h3>
+                <input type="text" id="dolares" />
+            </label>
+            <label>
+                <h3>Pesos Argentinos</h3>
                 <input type="text" id="pesos" />
             </label>
-            <h3>Dolares <div id="resultado" class="resultado"></div></h3>
-            <button class="calcular" onclick="convertir()">Convertir a dolares</button>
+            <div id="resultado" class="resultado"></div>
+            <button class="calcular" onclick="convertir()">Convertir</button>
         </div>
-       </main>
+    </main>
     <footer>
         <p>Created by Alejandra Zacarias</p>
     </footer>

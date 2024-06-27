@@ -1,157 +1,130 @@
+/* Estilos generales */
 * {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    font-family: Arial, Helvetica, sans-serif;
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #453c5c;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
 }
 
 nav {
-    background-color: #453c5c;
-    height: 7vh;
-    display: flex;
-    justify-content: space-around;
-
+  background-color: #453c5c;
+  height: 7vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
 }
 
-nav button {
-    background: none;
-    border: none;
-    padding: 0;
-    font: inherit;
-    outline: inherit;
+nav button, .calcularMSC, .css-button-gradient--1, .css-button-neumorphic {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav button:hover, .calcularMSC:hover, .css-button-gradient--1:hover, .css-button-neumorphic:hover {
+  opacity: 0.8; 
 }
 
 a {
-    text-decoration: none;
-    color: white;
-}
-
-.calcularMSC {
-    background: none;
-    border: none;
-    padding: 0;
-    font: inherit;
-    outline: inherit;
-}
-
-.calculadora {
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    text-align: center;
-}
-
-.formForm {
-    display: flex;
-    justify-content: center;
+  text-decoration: none;
+  color: white;
 }
 
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 87vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 87vh;
+  padding: 20px; 
 }
-
-form {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    padding: 10px;
-
-}
-
-.base {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.maineada {
-    display: flex;
-    background-color: #beed8065;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-    height: 30vh;
-    padding: 25px;
-}
-/* 
-textarea {
-    height: 200px;
-} */
 
 footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #51647a;
-    height: 6vh;
-    color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #51647a;
+  height: 6vh;
+  color: aliceblue;
+  padding: 10px 0;
 }
-.css-button-gradient--1 {
-    min-width: 130px;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    background-size: 120% auto;
-    background-image: linear-gradient(315deg, #4ecdc4 0%, #c797eb 75%);
-  }
-  .css-button-gradient--1:hover {
-    background-position: right center;
-  }
-  .css-button-gradient--1:active {
-    top: 2px;
-  }
-  .css-button-neumorphic {
-    min-width: 130px;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    background: #efefef;
-    box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
-    color: #585858;
-  }
-  .css-button-neumorphic:active {
-    box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
-  }
-  .contenedorTarjeta{
-    width: 90%;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-  }
-  .miClase{
-    list-style: none;
-    width: 85vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 5%;
-    }   
-  ul{
-    padding: 0;
-  }
+
+
+.contenedorDeNotas {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.contenedorDeNotas input, .contenedorDeNotas textarea, form input, form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.contenedorDeNotas button, form button {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tarjeta-nota {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-nota button, .css-button-gradient--1, .css-button-neumorphic {
+  align-self: flex-end;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-top: 10px; 
+}
+
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter-container input[type="text"], .filter-container input[type="checkbox"] {
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+.container, .contenedorTarjeta {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  padding: 25px;
+  border: 1px solid black;
+  margin-top: 5%;
+}

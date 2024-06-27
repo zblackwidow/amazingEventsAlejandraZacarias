@@ -1,59 +1,88 @@
-// array vacio donde almacena las
-let nota = [];
+
+let notas = [];
+let notaID = 0; 
+
 
 function agregarNota() {
-    let tituloIngresado = document.getElementById('titulO');
-    let descripcionIngresada = document.getElementById('descripcion');
-    let tituloDeLaNota = tituloIngresado.value;
-    let descripcionDeLaNota = descripcionIngresada.value;
+    const tituloA = document.getElementById('titulo');
+    const descripcionA = document.getElementById('descripcion');
+    const tituloIngresado = tituloA.value.trim();
+    const descripcionIngresada = descripcionA.value.trim();
 
-    if (tituloDeLaNota && descripcionDeLaNota) {
-        nota.push({ titulo: tituloDeLaNota, descripcion: descripcionDeLaNota, completed: false });
-        tituloIngresado.value = '';
-        descripcionIngresada.value = '';
-        imprimirNota();
-    }
-}
+    if (tituloIngresado && descripcionIngresada) {
+        const nuevaNota = {
+            id: notas.length + 1, 
+            titulo: tituloIngresado,
+            descripcion: descripcionIngresada,
+            realizada: false
+        };
 
-function limpiarCampos() {
-    let tituloIngresado = document.getElementById('titulO');
-    let descripcionIngresada = document.getElementById('descripcion');
-    tituloIngresado.value = '';
-    descripcionIngresada.value = '';
-}
-function checked(index) {
-    if (nota[index].completed) {
-        nota[index].completed = false;
+        notas.push(nuevaNota);
+        tituloA.value = '';
+        descripcionA.value = '';
+        imprimirNotas(); 
     } else {
-        nota[index].completed = true;
+        alert("Ingrese título y descripción");
     }
-    imprimirNota();
 }
 
-function eliminarNota(index) {
-    nota.splice(index, 1);
-    imprimirNota();
+
+function eliminarNota(id) {
+    notas = notas.filter(nota => nota.id !== id);
+    imprimirNotas(); 
 }
 
-function imprimirNota() {
+
+function marcarRealizada(id) {
+    let nota = notas.find(nota => nota.id === id);
+    if (nota) {
+        nota.realizada = !nota.realizada;
+    }
+    imprimirNotas();
+}
+
+
+function imprimirNotas() {
     let tarjeta = document.getElementById('tarjeta');
     tarjeta.innerHTML = '';
 
-    nota.forEach((task, index) => {
-        let li = document.createElement('li');
-        li.classList.add('miClase');
-        li.innerHTML = `
-            <div>
-                <input type="checkbox" id="task${index}" ${task.completed ? 'checked' : ''} onchange="checked(${index})">
-                <label for="task${index}" class="${task.completed ? 'completed' : ''}">
-                    <strong>${task.titulo}</strong><br>
-                    ${task.descripcion}
-                </label>
-            </div>
-            <button class="css-button-gradient--1" onclick="eliminarNota(${index})" >Eliminar</button>
+    let notasFiltradas = aplicarFiltrosInterno(notas);
+    if (notasFiltradas.length === 0) {
+        tarjeta.innerHTML = '<p>Está vacío</p>';
+        return;
+    }
+
+    notasFiltradas.forEach(nota => {
+        let div = document.createElement('div');
+        div.classList.add('tarjeta-nota');
+        div.innerHTML = `
+            <input type="checkbox" onclick="marcarRealizada(${nota.id})" ${nota.realizada ? 'checked' : ''}>
+            <strong>${nota.titulo}</strong>
+            <p>${nota.descripcion}</p>
+            <button onclick="eliminarNota(${nota.id})">Borrar Nota</button>
         `;
-        tarjeta.appendChild(li);
+        tarjeta.appendChild(div);
     });
 }
 
-imprimirNota();
+function aplicarFiltros() {
+    imprimirNotas(); 
+}
+
+function aplicarFiltrosInterno(arrayNotas) {
+    let textoFiltro = document.getElementById('filterText').value.toLowerCase();
+    let mostrarRealizadas = document.getElementById('filterCompleted').checked;
+
+    return arrayNotas.filter(nota => {
+        let cumpleTexto = nota.titulo.toLowerCase().includes(textoFiltro) || nota.descripcion.toLowerCase().includes(textoFiltro);
+        let cumpleRealizadas = !mostrarRealizadas || (mostrarRealizadas && nota.realizada);
+        return cumpleTexto && cumpleRealizadas;
+    });
+}
+
+function limpiarCampos() {
+    document.getElementById('titulo').value = '';
+    document.getElementById('descripcion').value = '';
+}
+
+imprimirNotas();
